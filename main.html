@@ -40,7 +40,7 @@ R"=====(
   InitWebSocket()
   function InitWebSocket()
   {
-    websock = new WebSocket('ws://'+window.location.hostname+':81/');
+    websock = new WebSocket('ws://'192.168.43.2':81/');
     websock.onmessage=function(evt)
     {
        JSONobj = JSON.parse(evt.data);
