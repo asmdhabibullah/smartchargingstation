@@ -30,3 +30,4 @@
 *.exe
 *.out
 *.app
+.Ds_Store
