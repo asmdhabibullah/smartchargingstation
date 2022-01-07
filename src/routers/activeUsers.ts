@@ -8,12 +8,11 @@ const router = express.Router();
 router.get("/api/users/active", cacheCheck, async (req: Request, res: Response) => {
     // console.log("HI, I'm active user.");
     const { key } = req.body;
-    await User.find({}).exec((err, docs) => {
+    await User.find({ status: true }).exec((err, docs) => {
         // console.log(err, docs);
-        const activeUsers = docs.filter(doc => doc.status === true);
-        if (!err && docs.length > 0 && activeUsers.length > 0) {
-            rdsClint.setex(key, 86400, activeUsers as any);
-            return successHandler(res, 200, activeUsers);
+        if (!err && docs.length > 0 && docs.length > 0) {
+            rdsClint.setex(key, 86400, docs as any);
+            return successHandler(res, 200, docs);
         }
         return errorHandler(res, 404, "Active user not found!")
     });

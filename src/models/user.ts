@@ -1,6 +1,7 @@
 import {
     model, Schema, Model, Document
 } from "mongoose";
+import { boolean } from "webidl-conversions";
 import { Password } from "../service/password";
 
 interface UserInterface {
@@ -11,6 +12,7 @@ interface UserInterface {
     password?: string;
     divices?: [string];
     payments?: [string];
+    status?: boolean;
     role?: string;
 }
 
@@ -22,6 +24,7 @@ interface UserDoc extends Document {
     password?: string;
     divices?: [string];
     payments?: [string];
+    status?: boolean;
     role?: string;
 }
 
@@ -70,6 +73,10 @@ const UserSchema = new Schema(
                 trim: "Payment"
             }
         ],
+        status: {
+            type: Boolean,
+            default: false
+        },
         role: {
             type: String,
             trim: true,

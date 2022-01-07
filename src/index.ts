@@ -3,17 +3,19 @@ import { connect } from "mongoose";
 
 const dbConnect = async () => {
     try {
-        const DB_URI = process.env.MONGO_URI || "mongodb://librarydb-srv:27017/librarydb";
+        const DB_URI = process.env.MONGO_URI || "mongodb://localhost:27017/smartchargingstation";
         await connect(DB_URI);
-        console.log("Library database connected successfully");
+        console.log("Smart charging station database connected successfully");
     } catch (error) {
         console.log(error);
     }
 };
 
-const port = process.env.PORT || 4000;
+// Get PORT from environment
+const port = process.env.PORT || 4548;
+
 app.listen(port, () => {
-    console.log(`Library app runing on: http://localhost:${port}`);
+    console.log(`Smart charging station app runing on: http://localhost:${port}`);
 });
 
 dbConnect();

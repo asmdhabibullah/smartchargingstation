@@ -3,7 +3,7 @@ import { successHandler } from "package.breezebd.com";
 import { Request, Response, NextFunction } from "express";
 
 export const rdsClint = createClient({
-    url: 'rediss://library-cache-srv:6379/library-cache'
+    url: 'rediss://localhost:6379/smartchargingstation-cache'
 }).on("error", (error) => {
     console.error(error);
     console.log("Redis connection error!");
@@ -13,7 +13,6 @@ export const rdsClint = createClient({
 export const cacheCheck = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const { key } = req.body;
-
         const getData = await rdsClint.get(key);
         if (getData) {
             return successHandler(res, 200, getData);
