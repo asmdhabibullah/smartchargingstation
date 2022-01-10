@@ -10,6 +10,7 @@ interface StationAttrs {
         {
             checkIn?: string;
             checkOut?: string;
+            charging?: boolean;
             portNumber?: string;
             portQRCode?: string;
             portAddress?: string;
@@ -27,6 +28,7 @@ interface StationDoc extends Document {
         {
             checkIn?: string;
             checkOut?: string;
+            charging?: boolean;
             portNumber?: string;
             portQRCode?: string;
             portAddress?: string;
@@ -71,6 +73,10 @@ const StationSchema = new Schema(
                     type: String,
                     trim: true,
                     default: null
+                },
+                charging: {
+                    type: Boolean,
+                    default: false
                 },
                 portAddress: {
                     type: String,
