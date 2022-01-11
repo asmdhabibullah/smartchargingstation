@@ -46,7 +46,9 @@ app.use(deleteUserRouter);
 app.use(getDataFromEsp32);
 
 // app.use(errorHandler);
-
+app.all('/', async (req, res) => {
+    return res.status(200).json({ message: "App working!" })
+});
 
 // HTTP server
 const server = createServer(app);
@@ -102,10 +104,6 @@ IO.on("connection", (socket) => {
             IO.emit("LEAVE_USER", { user: leavedUser });
         };
     });
-});
-
-app.all('/', async (req, res) => {
-    return res.status(200).json({ message: "App working!" })
 });
 
 export { app };
