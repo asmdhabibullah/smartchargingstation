@@ -6,7 +6,7 @@
   "scripts": {
     "test:ci": "jest",
     "test": "jest --watchAll --no-cache",
-    "start": "ts-node-dev src/index.ts",
+    "start": "ts-node-dev ./src/index.ts",
     "client": "npm run dev --prefix client",
     "start:dev": "concurrently \"npm run start\" \"npm run client\""
   },
