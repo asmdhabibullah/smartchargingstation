@@ -1,0 +1,11 @@
+{
+  "exec": "npm run start",
+  "watch": [
+    "src/**/*"
+  ],
+  "ignore": [
+    "dist",
+    "client",
+    "node_modules"
+  ]
+}

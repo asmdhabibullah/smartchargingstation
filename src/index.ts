@@ -1,4 +1,4 @@
-import { server } from './app';
+import { app } from './app';
 import { connect } from "mongoose";
 
 const dbConnect = async () => {
@@ -14,7 +14,7 @@ const dbConnect = async () => {
 // Get PORT from environment
 const port = process.env.PORT || 4548;
 
-server.listen(port, () => {
+app.listen(port, () => {
     console.log(`Smart charging station app runing on: http://localhost:${port}`);
 });
 

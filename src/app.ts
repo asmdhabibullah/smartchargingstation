@@ -45,11 +45,6 @@ app.use(deleteUserRouter);
 // Get data from ESP32
 app.use(getDataFromEsp32);
 
-app.all('*', async (req, res) => {
-    console.log("Error handaling for all routers.");
-    throw new NotFoundError();
-});
-
 // app.use(errorHandler);
 
 
@@ -105,4 +100,9 @@ IO.on("connection", (socket) => {
     });
 });
 
-export { server };
+app.all('*', async (req, res) => {
+    console.log("Error handaling for all routers.");
+    throw new NotFoundError();
+});
+
+export { app };
