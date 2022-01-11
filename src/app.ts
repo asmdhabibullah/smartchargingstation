@@ -58,17 +58,19 @@ const CLINT = process.env.FRONTEND_PROD_URI || process.env.FRONTEND_DEV_URI;
 
 // console.log("CLINT", CLINT);
 
-export let SOCKETIO: Socket;
-export let CONNECTED_USER: any[] = [];
-
 const IO = new Server(server, {
     cors: {
         origin: `${CLINT}`
     }
 });
 
+export let SOCKETIO: Socket;
+export let CONNECTED_USER: any[] = [];
+
 IO.on("connection", (socket) => {
     // console.log(socket);
+    SOCKETIO = socket;
+
     console.log("Client connected");
 
     socket.on("CONNECT_USER", ({ data }: any) => {
@@ -80,7 +82,6 @@ IO.on("connection", (socket) => {
         });
     });
 
-    SOCKETIO = socket;
     // socket.on("disconnect", () => {
     //     console.log("Socket destroyed!");
     // });
