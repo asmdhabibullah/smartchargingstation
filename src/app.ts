@@ -6,7 +6,7 @@ import { createServer } from 'http';
 import { json } from 'body-parser';
 import { Server, Socket } from 'socket.io';
 import cookieSession from 'cookie-session';
-import { NotFoundError } from 'package.breezebd.com';
+// import { NotFoundError } from 'package.breezebd.com';
 
 import { signinUserRouter } from './routers/signin';
 import { activeUserRouter } from './routers/activeUsers';
@@ -52,20 +52,20 @@ app.use(getDataFromEsp32);
 const server = createServer(app);
 
 // SocketIO
-const IO = new Server(server, {
-    cors: {
-        origin: [
-            "http://localhost:3000",
-            "https://smartchargingstation.herokuapp.com"
-        ]
-    }
-});
+const CLINT = process.env.FRONTEND_PROD_URI || process.env.FRONTEND_DEV_URI;
+
+// console.log("CLINT", CLINT);
 
 export let SOCKETIO: Socket;
 export let CONNECTED_USER: any[] = [];
 
+const IO = new Server(server, {
+    cors: {
+        origin: `${CLINT}`
+    }
+});
+
 IO.on("connection", (socket) => {
-    SOCKETIO = socket;
     // console.log(socket);
     console.log("Client connected");
 
@@ -78,6 +78,7 @@ IO.on("connection", (socket) => {
         });
     });
 
+    SOCKETIO = socket;
     // socket.on("disconnect", () => {
     //     console.log("Socket destroyed!");
     // });
@@ -103,9 +104,8 @@ IO.on("connection", (socket) => {
     });
 });
 
-app.all('*', async (req, res) => {
-    console.log("Error handaling for all routers.");
-    throw new NotFoundError();
+app.all('/', async (req, res) => {
+    return res.status(200).json({ message: "App working!" })
 });
 
 export { app };

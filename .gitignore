@@ -35,3 +35,5 @@ node_modules
 client
 .env
 dist
+nodemon-two
+package-two
