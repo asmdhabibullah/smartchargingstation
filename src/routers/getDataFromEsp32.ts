@@ -1,15 +1,19 @@
 import express, { Request, Response } from "express";
 import { successHandler, errorHandler } from "package.breezebd.com";
-import { CONNECTED_USER, SOCKETIO } from "../app";
+import { useSocket, useUsers } from "../socket";
 
 const router = express.Router();
+
+// console.log(router);
 
 router.post("/api/esp32", async (req: Request, res: Response) => {
     try {
         // console.log(req.body);
-        // console.log("CONNECTED_USER", CONNECTED_USER);
-        if (SOCKETIO && CONNECTED_USER.length > -1) {
-            SOCKETIO.emit("DEVICE_DATA", { data: req.body });
+        const users = useUsers();
+        const socket = useSocket();
+
+        if (socket && users.length > -1) {
+            socket.emit("DEVICE_DATA", { data: req.body });
             return successHandler(res, 200, "Device data sended successfully!");
         }
         // CONNECTED_USER.forEach((user, idx) => {

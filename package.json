@@ -2,7 +2,7 @@
   "name": "auth",
   "version": "1.0.0",
   "description": "",
-  "main": "index.ts",
+  "main": "./src/index.ts",
   "scripts": {
     "test:ci": "jest",
     "test": "jest --watchAll --no-cache",
@@ -28,6 +28,7 @@
     "@types/jsonwebtoken": "^8.5.6",
     "@types/socket.io": "^3.0.2",
     "@types/supertest": "^2.0.11",
+    "concurrently": "^7.0.0",
     "cookie-session": "^1.4.0",
     "dotenv": "^11.0.0",
     "express": "^4.17.1",
