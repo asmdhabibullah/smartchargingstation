@@ -35,6 +35,6 @@ node_modules
 client
 .env
 dist
-nodemon-two
-package-two
+nodemon-two.json
+package-two.json
 smartchargingstation-client
