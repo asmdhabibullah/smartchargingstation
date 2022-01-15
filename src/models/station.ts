@@ -123,38 +123,3 @@ const Station = model<StationDoc, StationModel>("Station", StationSchema);
 
 export { Station }
 
-// const user = Station.build({
-//     usename: "asmdhabibullah",
-//     firstname: "As",
-//     lastname: "Md Habibullah",
-//     email: "asmdhabibullah96@gmail.com",
-//     password: "Pass123456@#$"
-// });
-
-// Station
-// First name
-// Last name
-// Phone number
-// Mail address
-// Password
-// NID number[Any country] / Same as
-// Account number
-// Permanent Address
-// Present address
-// Picture
-// Signeture
-// Deposit amount
-// Profit
-// Re invest
-// Withdraw amount
-// Stations[]
-// Nominee
-    // First name
-    // Last name
-    // Phone number
-    // Mail address
-    // NID number[Any country]/ Same as others
-    // Permanent Address
-    // Present address
-    // Picture
-    // Signeture

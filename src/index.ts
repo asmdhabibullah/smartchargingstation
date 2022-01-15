@@ -3,7 +3,7 @@ import cors from 'cors'
 import express from 'express';
 import 'express-async-errors';
 import { createServer } from 'http';
-import { json } from 'body-parser';
+import { json, text } from 'body-parser';
 import { connect } from "mongoose";
 import { Socket } from 'socket.io';
 import cookieSession from 'cookie-session';
@@ -25,6 +25,7 @@ const app = express();
 
 app.use(cors());
 app.set('trust proxy', true);
+app.use(text());
 app.use(json());
 app.use(
     cookieSession({
