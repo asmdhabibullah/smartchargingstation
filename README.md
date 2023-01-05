@@ -1,4 +1,4 @@
-# Smart Charging Station
+# Smart Charging Station ESP, Arduino and Server Code
 
 Our main objective was to create this project was to reduce the charging cost for all types of charging devices (bikes, cars, mobile, etc.)
 here is a simple list of all the types of technology that we have used
