@@ -10,6 +10,61 @@ here is a simple list of all the types of technology that we have used
 - TypeScript
 - ReactJs, NextJs
 
+## activeChargingDevices.ts
+
+This file contains the function to get the list of active charging devices. The function takes a user ID as input and returns a list of objects, each of which represents a charging device. The objects contain the following information:
+
+- Device ID
+- Device name
+- Device status
+- Device location
+
+## activeChargingStations.ts
+
+This file contains the function to get the list of active charging stations. The function takes a user ID as input and returns a list of objects, each of which represents a charging station. The objects contain the following information:
+
+- Station ID
+- Station name
+- Station status
+- Station location
+
+## activeUsers.ts
+
+This file contains the function to get the list of active users. The function returns a list of objects, each of which represents a user. The objects contain the following information:
+
+- User ID
+- User name
+- User email
+- User phone number
+- User status
+
+## deleteUser.ts
+
+This file contains the function to delete a user. The function takes a user ID as input and deletes the user from the database.
+
+## getDataFromEsp32.ts
+
+This file contains the function to get data from an ESP32 device. The function takes an ESP32 device ID as input and returns a JSON object containing the data from the device. The data may include the following information:
+
+- Device temperature
+- Device battery level
+- Device status
+- signin.ts
+
+This file contains the function to sign in a user. The function takes a user name and password as input and returns a token that can be used to access the API.
+
+## signout.ts
+
+This file contains the function to sign out a user. The function takes a token as input and signs out the user from the API.
+
+## signup.ts
+
+This file contains the function to sign up a user. The function takes a user name, email, and password as input and creates a new user in the database.
+
+## updateUser.ts
+
+This file contains the function to update a user. The function takes a user ID and the new user information as input and updates the user in the database.
+
 
 This is a [Next.js](https://nextjs.org/) frontend project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
