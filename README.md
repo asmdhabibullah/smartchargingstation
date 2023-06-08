@@ -66,7 +66,7 @@ This file contains the function to sign up a user. The function takes a user nam
 This file contains the function to update a user. The function takes a user ID and the new user information as input and updates the user in the database.
 
 
-This is a [Next.js](https://nextjs.org/) frontend project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# This is a [Next.js](https://nextjs.org/) frontend project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
